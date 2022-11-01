@@ -1,0 +1,14 @@
+//
+//  NetworkRequestBodyConvertible.swift
+//  HW_Networking
+//
+//  Created by Iryna Zubrytska on 01.11.2022.
+//
+
+import Foundation
+
+protocol NetworkRequestBodyConvertible {
+    var data: Data? { get }
+    var queryItems: [URLQueryItem]? { get }
+    var parameters: [String : Any]? { get }
+}
