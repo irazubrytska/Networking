@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04925656291401DD00B8CA59 /* GuessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925655291401DD00B8CA59 /* GuessModel.swift */; };
+		049256582914026D00B8CA59 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049256572914026D00B8CA59 /* SearchModel.swift */; };
+		0492565A291403CE00B8CA59 /* GetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925659291403CE00B8CA59 /* GetInfoModel.swift */; };
+		0492565C291404CD00B8CA59 /* CuisineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492565B291404CD00B8CA59 /* CuisineModel.swift */; };
 		04C4B8342911587A00551892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8332911587A00551892 /* AppDelegate.swift */; };
 		04C4B8362911587A00551892 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8352911587A00551892 /* SceneDelegate.swift */; };
 		04C4B8382911587A00551892 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8372911587A00551892 /* ViewController.swift */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04925655291401DD00B8CA59 /* GuessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessModel.swift; sourceTree = "<group>"; };
+		049256572914026D00B8CA59 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		04925659291403CE00B8CA59 /* GetInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInfoModel.swift; sourceTree = "<group>"; };
+		0492565B291404CD00B8CA59 /* CuisineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineModel.swift; sourceTree = "<group>"; };
 		04C4B8302911587A00551892 /* HW_Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW_Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C4B8332911587A00551892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C4B8352911587A00551892 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04925654291401A900B8CA59 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04925655291401DD00B8CA59 /* GuessModel.swift */,
+				049256572914026D00B8CA59 /* SearchModel.swift */,
+				04925659291403CE00B8CA59 /* GetInfoModel.swift */,
+				0492565B291404CD00B8CA59 /* CuisineModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		04C4B8272911587A00551892 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +95,7 @@
 		04C4B8322911587A00551892 /* HW_Networking */ = {
 			isa = PBXGroup;
 			children = (
+				04925654291401A900B8CA59 /* Model */,
 				04C4B85C291161ED00551892 /* NetworkingImpl */,
 				04C4B84F29115F4100551892 /* Networking */,
 				04C4B8332911587A00551892 /* AppDelegate.swift */,
@@ -210,12 +230,16 @@
 				04C4B8382911587A00551892 /* ViewController.swift in Sources */,
 				04C4B8602911623200551892 /* RecipeAnalyzeInstruction.swift in Sources */,
 				04C4B85A291161B300551892 /* AlamoNetwork.swift in Sources */,
+				0492565A291403CE00B8CA59 /* GetInfoModel.swift in Sources */,
 				04C4B85E2911620B00551892 /* RecipesEndpoint.swift in Sources */,
+				04925656291401DD00B8CA59 /* GuessModel.swift in Sources */,
 				04C4B8342911587A00551892 /* AppDelegate.swift in Sources */,
 				04C4B8362911587A00551892 /* SceneDelegate.swift in Sources */,
 				04C4B858291161A100551892 /* Network.swift in Sources */,
 				04C4B85229115F6300551892 /* Result.swift in Sources */,
+				049256582914026D00B8CA59 /* SearchModel.swift in Sources */,
 				04C4B85629115FBC00551892 /* NetworkError.swift in Sources */,
+				0492565C291404CD00B8CA59 /* CuisineModel.swift in Sources */,
 				04C4B84B29115BFD00551892 /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +387,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VNU8KKW4GG;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HW_Networking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -371,6 +395,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,7 +416,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VNU8KKW4GG;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HW_Networking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -399,6 +424,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
