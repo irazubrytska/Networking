@@ -31,6 +31,7 @@
 		04C4B85A291161B300551892 /* AlamoNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B859291161B300551892 /* AlamoNetwork.swift */; };
 		04C4B85E2911620B00551892 /* RecipesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B85D2911620B00551892 /* RecipesEndpoint.swift */; };
 		04C4B8602911623200551892 /* RecipeAnalyzeInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B85F2911623200551892 /* RecipeAnalyzeInstruction.swift */; };
+		04C4B8662914271600551892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04C4B8652914271600551892 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C4B8662914271600551892 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +196,7 @@
 			);
 			name = HW_Networking;
 			packageProductDependencies = (
+				04C4B8652914271600551892 /* Alamofire */,
 			);
 			productName = HW_Networking;
 			productReference = 04C4B8302911587A00551892 /* HW_Networking.app */;
@@ -224,7 +227,7 @@
 			);
 			mainGroup = 04C4B8272911587A00551892;
 			packageReferences = (
-				04C4B861291163D600551892 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				04C4B8642914271600551892 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 04C4B8312911587A00551892 /* Products */;
 			projectDirPath = "";
@@ -349,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -403,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -426,8 +429,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,8 +457,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -495,15 +496,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		04C4B861291163D600551892 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		04C4B8642914271600551892 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04C4B8652914271600551892 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04C4B8642914271600551892 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04C4B8282911587A00551892 /* Project object */;
 }

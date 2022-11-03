@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak private var searchBar: UISearchBar!
     
-    private let viewModel: HomeScreenDisplayable = HomeScreenViewModel()
+    private var viewModel: HomeScreenDisplayable = HomeScreenViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeScreenDisplayable {
-    weak var ownedVC: ViewController? { get set }
+    var ownedVC: ViewController? { get set }
     
     func search(query: String)
     // pass some parameter?

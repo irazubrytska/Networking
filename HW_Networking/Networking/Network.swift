@@ -9,20 +9,19 @@ import Foundation
 
 final class Network<T: Endpoint> {
 
-    private let host: URL
+    private let host: String
     private let headers: [String : String]
     private let session = URLSession.shared
 
     init(_ host: String, headers: [String : String] = [:]) throws {
-        guard let url = URL(string: host) else {
-            throw NetworkError.badHostString
-        }
-        self.host = url
+        self.host = host
         self.headers = headers
     }
 
     func perform(_ method: Method, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible? = nil, completion: @escaping (Result) -> ()) {
-        let request = makeRequest(method, endpoint, parameters)
+        guard let request = makeRequest(method, endpoint, parameters) else {
+            return
+        }
 
         session.dataTask(with: request) { data, _, error in
             if let error {
@@ -34,21 +33,36 @@ final class Network<T: Endpoint> {
     }
 
     func perform(_ method: Method, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible? = nil) async throws -> Data {
-        let request = makeRequest(method, endpoint, parameters)
+        guard let request = makeRequest(method, endpoint, parameters) else {
+            return Data()
+        }
         let (data, _) = try await session.data(for: request)
         return data
     }
 
     // MARK: Private methods
     
-    private func makeRequest(_ method: Method, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible?) -> URLRequest {
-        var request = URLRequest(url: host.appending(path: endpoint.pathComponent))
+    private func makeRequest(_ method: Method,
+                             _ endpoint: T,
+                             _ parameters: NetworkRequestBodyConvertible?) -> URLRequest? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = host
+        urlComponents.path = endpoint.pathComponent
+
+        if method == .get {
+            urlComponents.queryItems = parameters?.queryItems
+        }
+
+        guard let url = urlComponents.url else {
+            return nil
+        }
+
+        var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
 
-        if method == .get {
-            request.url?.append(queryItems: parameters?.queryItems ?? [])
-        } else if method == .post {
+        if method == .post {
             request.httpBody = parameters?.data
         }
 

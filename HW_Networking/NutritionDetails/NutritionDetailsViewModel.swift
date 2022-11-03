@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
-protocol NutritionDetailsDisplayable { }
+protocol NutritionDetailsDisplayable {
+    var ownedVC: UIViewController? { get set }
+}
 
-class NutritionDetailsViewModel: NutritionDetailsDisplayable { }
+class NutritionDetailsViewModel: NutritionDetailsDisplayable {
+    weak var ownedVC: UIViewController?
+}
