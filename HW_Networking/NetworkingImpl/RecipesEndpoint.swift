@@ -7,11 +7,22 @@
 
 import Foundation
 
-enum RecipesEndpoint: String, Endpoint {
-
-    case analyzer = "recipes/analyzeInstructions"
+enum RecipesEndpoint: Endpoint {
+    case search
+    case information(id: Int)
+    case guessNutrition
+    case classifyCuisine
 
     var pathComponent: String {
-        rawValue
+        switch self {
+        case .search:
+            return "/recipes/complexSearch"
+        case .information(let id):
+            return "/recipes/\(id)/information"
+        case .guessNutrition:
+            return "/recipes/guessNutrition"
+        case .classifyCuisine:
+            return "recipes/cuisine"
+        }
     }
 }

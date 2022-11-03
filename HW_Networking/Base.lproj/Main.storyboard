@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H21-vg-IeJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="5EQ-4d-dxp">
+            <objects>
+                <navigationController id="H21-vg-IeJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M5D-UP-bqH">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Q81-JW-ihH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iow-gM-RQQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2425" y="-59"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,18 +34,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jnC-Ih-fE3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="gBj-do-91k"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="idi-Cu-WN4">
-                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
+                                <rect key="frame" x="0.0" y="180" width="414" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeTableViewCell" rowHeight="300" id="pHr-If-PZI" customClass="RecipeTableViewCell" customModule="HW_Networking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pHr-If-PZI" id="CE2-2G-HG1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-2q-ccF">
+                                                    <rect key="frame" x="20" y="257" width="374" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="plL-Mh-X4U"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n12-cc-G4z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="257"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qBN-2q-ccF" firstAttribute="leading" secondItem="CE2-2G-HG1" secondAttribute="leadingMargin" id="5f8-pR-F8B"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qBN-2q-ccF" secondAttribute="trailing" id="8Rq-OT-mEL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qBN-2q-ccF" secondAttribute="bottom" id="ESx-6P-cYP"/>
+                                                <constraint firstItem="n12-cc-G4z" firstAttribute="top" secondItem="CE2-2G-HG1" secondAttribute="top" id="Ju2-2L-ZzV"/>
+                                                <constraint firstItem="qBN-2q-ccF" firstAttribute="top" secondItem="n12-cc-G4z" secondAttribute="bottom" id="aRC-bj-Fyl"/>
+                                                <constraint firstItem="n12-cc-G4z" firstAttribute="leading" secondItem="CE2-2G-HG1" secondAttribute="leading" id="dKY-Eu-Q4d"/>
+                                                <constraint firstAttribute="trailing" secondItem="n12-cc-G4z" secondAttribute="trailing" id="ylz-BQ-z7n"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recipeImageView" destination="n12-cc-G4z" id="USW-Ze-LBJ"/>
+                                            <outlet property="titleLabel" destination="qBN-2q-ccF" id="tZU-cg-Waw"/>
+                                            <segue destination="Ph1-SF-e06" kind="show" identifier="openRecipeSegue" id="Rd0-gX-g3f"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GuessTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GuessTableViewCell" rowHeight="300" id="lTc-eM-1ME" customClass="GuessTableViewCell" customModule="HW_Networking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="350" width="414" height="300"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lTc-eM-1ME" id="8iP-Eo-4iF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <segue destination="d3w-4N-Alh" kind="show" identifier="openGuessSegue" id="TlT-Iq-GXi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-Rc-g2w">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV6-lj-Gp7">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
@@ -67,13 +136,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="idi-Cu-WN4" secondAttribute="trailing" id="voY-Cm-Tjc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="KDx-tK-Sdz"/>
                     <connections>
                         <outlet property="searchBar" destination="jnC-Ih-fE3" id="sLB-M8-arZ"/>
+                        <outlet property="tableView" destination="idi-Cu-WN4" id="EId-gO-8Fg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="78"/>
+            <point key="canvasLocation" x="-1391" y="-60"/>
         </scene>
         <!--Nutrition Details View Controller-->
         <scene sceneID="Us6-3v-5jV">
@@ -85,10 +156,11 @@
                         <viewLayoutGuide key="safeArea" id="6Ni-4A-UEi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GKY-K1-NFF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8q-qx-Opp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="384"/>
+            <point key="canvasLocation" x="-130" y="364"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="orm-IB-hqb">
@@ -100,10 +172,11 @@
                         <viewLayoutGuide key="safeArea" id="iuP-WH-uFe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fyL-oq-FfO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sg8-rn-ICZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907" y="-378"/>
+            <point key="canvasLocation" x="-130" y="-308"/>
         </scene>
     </scenes>
     <resources>

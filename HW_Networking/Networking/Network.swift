@@ -13,7 +13,7 @@ final class Network<T: Endpoint> {
     private let headers: [String : String]
     private let session = URLSession.shared
 
-    init(_ host: String, headers: [String : String] = [:]) throws {
+    init(_ host: String, headers: [String : String] = [:]) {
         self.host = host
         self.headers = headers
     }

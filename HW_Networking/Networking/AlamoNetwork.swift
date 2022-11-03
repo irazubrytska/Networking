@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class AlamoNetworking<T: Endpoint> {
+final class AlamoNetworking<T: Endpoint> {
 
     private let host: String
     private let headers: [String : String]

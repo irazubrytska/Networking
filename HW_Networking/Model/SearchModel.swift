@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+// MARK: - SearchModel
+struct SearchModel: Codable {
+    let results: [RecipeModel]
+}
+
+struct RecipeModel: Codable {
+    let id: Int
+    let image: URL?
+    let title: String
+}

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040AE3B4291458F300FE2C7E /* RequestUsageExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AE3B3291458F300FE2C7E /* RequestUsageExample.swift */; };
+		040AE3B829145C9E00FE2C7E /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AE3B729145C9E00FE2C7E /* RecipeTableViewCell.swift */; };
+		040AE3BB29145ED400FE2C7E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 040AE3BA29145ED400FE2C7E /* SDWebImage */; };
+		040AE3BE291461B800FE2C7E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AE3BD291461B800FE2C7E /* ArrayExtension.swift */; };
+		040AE3C029146ABC00FE2C7E /* GuessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AE3BF29146ABC00FE2C7E /* GuessTableViewCell.swift */; };
 		04925656291401DD00B8CA59 /* GuessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925655291401DD00B8CA59 /* GuessModel.swift */; };
 		049256582914026D00B8CA59 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049256572914026D00B8CA59 /* SearchModel.swift */; };
 		0492565A291403CE00B8CA59 /* GetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925659291403CE00B8CA59 /* GetInfoModel.swift */; };
@@ -32,9 +37,14 @@
 		04C4B85E2911620B00551892 /* RecipesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B85D2911620B00551892 /* RecipesEndpoint.swift */; };
 		04C4B8602911623200551892 /* RecipeAnalyzeInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B85F2911623200551892 /* RecipeAnalyzeInstruction.swift */; };
 		04C4B8662914271600551892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 04C4B8652914271600551892 /* Alamofire */; };
+		04C4B86A2914501000551892 /* RecipeSearchParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4B8692914501000551892 /* RecipeSearchParams.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040AE3B3291458F300FE2C7E /* RequestUsageExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUsageExample.swift; sourceTree = "<group>"; };
+		040AE3B729145C9E00FE2C7E /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		040AE3BD291461B800FE2C7E /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		040AE3BF29146ABC00FE2C7E /* GuessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTableViewCell.swift; sourceTree = "<group>"; };
 		04925655291401DD00B8CA59 /* GuessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessModel.swift; sourceTree = "<group>"; };
 		049256572914026D00B8CA59 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		04925659291403CE00B8CA59 /* GetInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInfoModel.swift; sourceTree = "<group>"; };
@@ -61,6 +71,7 @@
 		04C4B859291161B300551892 /* AlamoNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamoNetwork.swift; sourceTree = "<group>"; };
 		04C4B85D2911620B00551892 /* RecipesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesEndpoint.swift; sourceTree = "<group>"; };
 		04C4B85F2911623200551892 /* RecipeAnalyzeInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAnalyzeInstruction.swift; sourceTree = "<group>"; };
+		04C4B8692914501000551892 /* RecipeSearchParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchParams.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040AE3BB29145ED400FE2C7E /* SDWebImage in Frameworks */,
 				04C4B8662914271600551892 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +87,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040AE3BC291461A500FE2C7E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				040AE3BD291461B800FE2C7E /* ArrayExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		040AE3C129146ACA00FE2C7E /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				040AE3B729145C9E00FE2C7E /* RecipeTableViewCell.swift */,
+				040AE3BF29146ABC00FE2C7E /* GuessTableViewCell.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		04925654291401A900B8CA59 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +152,8 @@
 		04C4B8322911587A00551892 /* HW_Networking */ = {
 			isa = PBXGroup;
 			children = (
+				040AE3C129146ACA00FE2C7E /* UIComponents */,
+				040AE3BC291461A500FE2C7E /* Extensions */,
 				0492565E2914065E00B8CA59 /* NutritionDetails */,
 				0492565D2914063F00B8CA59 /* RecipeDetails */,
 				04925654291401A900B8CA59 /* Model */,
@@ -156,6 +187,7 @@
 				04C4B84929115BEE00551892 /* Protocols */,
 				04C4B857291161A100551892 /* Network.swift */,
 				04C4B859291161B300551892 /* AlamoNetwork.swift */,
+				040AE3B3291458F300FE2C7E /* RequestUsageExample.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -175,6 +207,7 @@
 			children = (
 				04C4B85D2911620B00551892 /* RecipesEndpoint.swift */,
 				04C4B85F2911623200551892 /* RecipeAnalyzeInstruction.swift */,
+				04C4B8692914501000551892 /* RecipeSearchParams.swift */,
 			);
 			path = NetworkingImpl;
 			sourceTree = "<group>";
@@ -197,6 +230,7 @@
 			name = HW_Networking;
 			packageProductDependencies = (
 				04C4B8652914271600551892 /* Alamofire */,
+				040AE3BA29145ED400FE2C7E /* SDWebImage */,
 			);
 			productName = HW_Networking;
 			productReference = 04C4B8302911587A00551892 /* HW_Networking.app */;
@@ -228,6 +262,7 @@
 			mainGroup = 04C4B8272911587A00551892;
 			packageReferences = (
 				04C4B8642914271600551892 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				040AE3B929145ED400FE2C7E /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 04C4B8312911587A00551892 /* Products */;
 			projectDirPath = "";
@@ -266,17 +301,22 @@
 				0492565A291403CE00B8CA59 /* GetInfoModel.swift in Sources */,
 				049256602914068300B8CA59 /* HomeScreenViewModel.swift in Sources */,
 				04C4B85E2911620B00551892 /* RecipesEndpoint.swift in Sources */,
+				040AE3B829145C9E00FE2C7E /* RecipeTableViewCell.swift in Sources */,
 				04925664291406D400B8CA59 /* RecipeViewController.swift in Sources */,
 				04925656291401DD00B8CA59 /* GuessModel.swift in Sources */,
 				04C4B8342911587A00551892 /* AppDelegate.swift in Sources */,
+				040AE3B4291458F300FE2C7E /* RequestUsageExample.swift in Sources */,
 				04C4B8362911587A00551892 /* SceneDelegate.swift in Sources */,
 				0492566A2914074700B8CA59 /* NutritionDetailsViewController.swift in Sources */,
 				04C4B858291161A100551892 /* Network.swift in Sources */,
 				04C4B85229115F6300551892 /* Result.swift in Sources */,
 				049256582914026D00B8CA59 /* SearchModel.swift in Sources */,
 				04C4B85629115FBC00551892 /* NetworkError.swift in Sources */,
+				040AE3C029146ABC00FE2C7E /* GuessTableViewCell.swift in Sources */,
+				04C4B86A2914501000551892 /* RecipeSearchParams.swift in Sources */,
 				0492565C291404CD00B8CA59 /* CuisineModel.swift in Sources */,
 				04C4B84B29115BFD00551892 /* Endpoint.swift in Sources */,
+				040AE3BE291461B800FE2C7E /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +536,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		040AE3B929145ED400FE2C7E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		04C4B8642914271600551892 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -507,6 +555,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		040AE3BA29145ED400FE2C7E /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040AE3B929145ED400FE2C7E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		04C4B8652914271600551892 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04C4B8642914271600551892 /* XCRemoteSwiftPackageReference "Alamofire" */;
