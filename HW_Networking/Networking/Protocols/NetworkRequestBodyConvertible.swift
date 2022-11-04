@@ -10,5 +10,5 @@ import Foundation
 protocol NetworkRequestBodyConvertible {
     var data: Data? { get }
     var queryItems: [URLQueryItem]? { get }
-    var parameters: [String : Any]? { get }
+    var httpBody: [String : Any]? { get }
 }

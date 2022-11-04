@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 protocol NutritionDetailsDisplayable {
-    var ownedVC: UIViewController? { get set }
+    var ownedVC: NutritionDetailsViewController? { get set }
 }
 
 class NutritionDetailsViewModel: NutritionDetailsDisplayable {
-    weak var ownedVC: UIViewController?
+    weak var ownedVC: NutritionDetailsViewController?
 }

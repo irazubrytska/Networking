@@ -21,7 +21,7 @@ final class AlamoNetworking<T: Endpoint> {
     func perform(_ method: HTTPMethod, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible, completion: @escaping (Result) -> ()) {
 
         AF
-            .request(host + "/\(endpoint.pathComponent)", method: method, parameters: parameters.parameters, headers: HTTPHeaders(headers))
+            .request(host + "/\(endpoint.pathComponent)", method: method, parameters: parameters.data, headers: HTTPHeaders(headers))
             .response { response in
                 if let error = response.error {
                     completion(.error(error))

@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: - CuisineModel
-struct CuisineModel: Codable {
+struct CuisineModel: Codable, CustomStringConvertible {
+    var description: String {
+        cuisines.joined(separator: ",")
+    }
+
     let cuisine: String
     let cuisines: [String]
     let confidence: Int

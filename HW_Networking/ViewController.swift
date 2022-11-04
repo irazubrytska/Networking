@@ -24,8 +24,9 @@ class ViewController: UIViewController {
     
     // pass here some fetched data, add it to view model:
     // recipeController.viewModel.somedata = passedData
-    func showRecipeDetails() {
+    func showRecipeDetails(_ recipeId: Int) {
         guard let recipeController = self.storyboard?.instantiateViewController(withIdentifier: "RecipeViewController") as? RecipeViewController else { return }
+        recipeController.viewModel = RecipeViewModel(recipeId)
         self.navigationController?.pushViewController(recipeController, animated: true)
     }
     
@@ -38,7 +39,9 @@ class ViewController: UIViewController {
 
     @IBAction func search(_ sender: Any) {
          guard let text = searchBar.text else { return }
-        viewModel.search(query: text)
+        Task {
+            await viewModel.search(query: text)
+        }
     }
     
     @IBAction func guess(_ sender: Any) {
@@ -58,17 +61,16 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: RecipeTableViewCell.self),
             for: indexPath
-
         ) as! RecipeTableViewCell
 
         guard let recipe = viewModel.recipes[safe: indexPath.row] else { return cell }
         cell.model = recipe
-
-        cell.openRecipeInfoAction = { [unowned self] in
-
-        }
-
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let recipe = viewModel.recipes[safe: indexPath.row] else { return }
+        viewModel.details(for: recipe.id)
     }
 }
 

@@ -22,7 +22,7 @@ enum RecipesEndpoint: Endpoint {
         case .guessNutrition:
             return "/recipes/guessNutrition"
         case .classifyCuisine:
-            return "recipes/cuisine"
+            return "/recipes/cuisine"
         }
     }
 }

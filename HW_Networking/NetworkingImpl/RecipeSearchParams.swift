@@ -8,15 +8,17 @@
 import Foundation
 
 struct RecipeSearchParams: NetworkRequestBodyConvertible {
-    let data: Data?
-    let queryItems: [URLQueryItem]?
-    let parameters: [String : Any]?
+    var text: String
 
-    init(data: Data? = nil,
-         queryItems: [URLQueryItem]? = nil,
-         parameters: [String : Any]? = nil) {
-        self.data = data
-        self.queryItems = queryItems
-        self.parameters = parameters
+    var data: Data?
+
+    var queryItems: [URLQueryItem]? {
+        [URLQueryItem(name: "query", value: text)]
+    }
+
+    var httpBody: [String : Any]?
+
+    init(_ text: String) {
+        self.text = text
     }
 }

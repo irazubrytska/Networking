@@ -11,9 +11,8 @@ protocol HomeScreenDisplayable {
     var ownedVC: ViewController? { get set }
     var recipes: [RecipeModel] { get set }
 
-    func search(query: String)
-    // pass some parameter?
-    func details()
+    func search(query: String) async
+    func details(for recipeId: Int)
     func guess(query: String)
 }
 
@@ -31,6 +30,11 @@ class HomeScreenViewModel: HomeScreenDisplayable {
     let network: Network<RecipesEndpoint> = .init(Constants.host,
                                                   headers: Constants.headers)
 
+    // TODO: complete AlamoNetworking, not working yet
+
+//    let network: AlamoNetworking<RecipesEndpoint> = .init(Constants.host,
+//                                                          headers: Constants.headers)
+
     var recipes: [RecipeModel] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -39,28 +43,23 @@ class HomeScreenViewModel: HomeScreenDisplayable {
         }
     }
     
-    func search(query: String) {
-        network.perform(.get,
-                        .search,
-                        RecipeSearchParams(queryItems: [.init(name: "query", value: query)])
-        ) { [weak self] result in
-            switch result {
-            case .data(let data):
-                if let data = data,
-                   let decoded = try? JSONDecoder().decode(SearchModel.self, from: data) {
-                    self?.recipes = decoded.results
-                }
-            case .error(_):
-                // handle error
-                break
+    func search(query: String) async {
+        do {
+            let data = try await network.perform(.get,
+                                                 .search,
+                                                 RecipeSearchParams(query))
+            guard let decoded = try? JSONDecoder().decode(SearchModel.self, from: data) else {
+                return
             }
+            self.recipes = decoded.results
+        }
+        catch {
+            // handle error
         }
     }
     
-    func details() {
-        // fetch
-        // pass some fetched details
-        ownedVC?.showRecipeDetails()
+    func details(for recipeId: Int) {
+        ownedVC?.showRecipeDetails(recipeId)
     }
     
     func guess(query: String) {

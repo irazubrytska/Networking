@@ -9,16 +9,16 @@ import Foundation
 
 // MARK: - InfoModel
 struct InfoModel: Codable {
-    let vegetarian, vegan, glutenFree, dairyFree: Bool
-    let veryHealthy, cheap, veryPopular, sustainable: Bool
+    let vegetarian, vegan, glutenFree, dairyFree: Bool?
+    let veryHealthy, cheap, veryPopular, sustainable: Bool?
     let weightWatcherSmartPoints: Int
     let gaps: String
-    let lowFodmap, ketogenic, whole30: Bool
+    let lowFodmap, ketogenic, whole30: Bool?
     let servings: Int
     let sourceURL: String
-    let spoonacularSourceURL: String
+    let spoonacularSourceURL: String?
     let aggregateLikes: Int
-    let creditText, sourceName: String
+    let creditsText, sourceName: String
     let extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
@@ -30,7 +30,7 @@ struct InfoModel: Codable {
         case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, weightWatcherSmartPoints, gaps, lowFodmap, ketogenic, whole30, servings
         case sourceURL = "sourceUrl"
         case spoonacularSourceURL = "spoonacularSourceUrl"
-        case aggregateLikes, creditText, sourceName, extendedIngredients, id, title, readyInMinutes, image, imageType, instructions
+        case aggregateLikes, creditsText, sourceName, extendedIngredients, id, title, readyInMinutes, image, imageType, instructions
     }
 }
 
@@ -41,7 +41,7 @@ struct ExtendedIngredient: Codable {
     let image: String
     let name: String
     let amount: Double
-    let unit, unitShort, unitLong, originalString: String
-    let metaInformation: [String]
+    let unit, unitShort, unitLong, originalString: String?
+    let meta: [String]
 }
 
