@@ -14,6 +14,7 @@ class NutritionDetailsViewController: UIViewController {
     @IBOutlet weak private var carbs: UILabel!
     @IBOutlet weak private var fat: UILabel!
     @IBOutlet weak private var protein: UILabel!
+    @IBOutlet weak private var queryLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,5 +27,8 @@ class NutritionDetailsViewController: UIViewController {
         self.carbs.text = String(viewModel?.nutrition.carbs.value ?? 0) + (viewModel?.nutrition.carbs.unit ?? "")
         self.fat.text = String(viewModel?.nutrition.fat.value ?? 0) + (viewModel?.nutrition.fat.unit ?? "")
         self.protein.text = String(viewModel?.nutrition.protein.value ?? 0) + (viewModel?.nutrition.protein.unit ?? "")
+        
+        guard let query = viewModel?.query else { return }
+        queryLabel.text = "search query: \(query)"
     }
 }

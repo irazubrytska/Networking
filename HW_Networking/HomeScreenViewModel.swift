@@ -47,6 +47,10 @@ class HomeScreenViewModel: HomeScreenDisplayable {
                 await ownedVC?.showErrorAlert()
                 return
             }
+            if decoded.results.isEmpty {
+                await ownedVC?.showErrorAlert()
+                return
+            }
             self.recipes = decoded.results
         }
         catch {
@@ -70,7 +74,7 @@ class HomeScreenViewModel: HomeScreenDisplayable {
                 return
             }
             // pass some fetched details
-            await ownedVC?.showNutritionDetails(details: decoded)
+            await ownedVC?.showNutritionDetails(details: decoded, query: query)
         }
         catch {
             // handle error

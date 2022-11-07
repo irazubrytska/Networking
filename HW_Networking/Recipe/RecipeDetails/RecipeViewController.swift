@@ -8,12 +8,13 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var servingsLabel: UILabel!
-    @IBOutlet weak var cuisinesLabel: UILabel!
-
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var timeLabel: UILabel!
+    @IBOutlet weak private var servingsLabel: UILabel!
+    @IBOutlet weak private var cuisinesLabel: UILabel!
+    @IBOutlet weak private var recipeTextView: UITextView!
+    
     var viewModel: RecipeDisplayable? {
         didSet {
             Task {
@@ -32,6 +33,8 @@ class RecipeViewController: UIViewController {
         titleLabel.text = model.title
         timeLabel.text = "Time: \(model.readyInMinutes) min"
         servingsLabel.text = "Servings: \(model.servings)"
+        
+        recipeTextView.text = model.instructions
     }
 
     func configure(with model: CuisineModel) {

@@ -13,7 +13,6 @@
 		041B06612918CD8900B692DC /* NutritionGuessParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06602918CD8900B692DC /* NutritionGuessParams.swift */; };
 		041B06632918D84100B692DC /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06622918D84100B692DC /* RecipeTableViewCell.swift */; };
 		041B06662918D8C800B692DC /* SearchErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06652918D8C800B692DC /* SearchErrorPresenter.swift */; };
-		041B06682918DA8900B692DC /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06672918DA8900B692DC /* RecipeError.swift */; };
 		04925656291401DD00B8CA59 /* GuessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925655291401DD00B8CA59 /* GuessModel.swift */; };
 		049256582914026D00B8CA59 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049256572914026D00B8CA59 /* SearchModel.swift */; };
 		0492565A291403CE00B8CA59 /* GetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925659291403CE00B8CA59 /* GetInfoModel.swift */; };
@@ -47,7 +46,6 @@
 		041B06602918CD8900B692DC /* NutritionGuessParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionGuessParams.swift; sourceTree = "<group>"; };
 		041B06622918D84100B692DC /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		041B06652918D8C800B692DC /* SearchErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchErrorPresenter.swift; sourceTree = "<group>"; };
-		041B06672918DA8900B692DC /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 		04925655291401DD00B8CA59 /* GuessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessModel.swift; sourceTree = "<group>"; };
 		049256572914026D00B8CA59 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		04925659291403CE00B8CA59 /* GetInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInfoModel.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				049256572914026D00B8CA59 /* SearchModel.swift */,
 				04925659291403CE00B8CA59 /* GetInfoModel.swift */,
 				0492565B291404CD00B8CA59 /* CuisineModel.swift */,
-				041B06672918DA8900B692DC /* RecipeError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,7 +323,6 @@
 				04C4B8342911587A00551892 /* AppDelegate.swift in Sources */,
 				04C4B8362911587A00551892 /* SceneDelegate.swift in Sources */,
 				0492566A2914074700B8CA59 /* NutritionDetailsViewController.swift in Sources */,
-				041B06682918DA8900B692DC /* RecipeError.swift in Sources */,
 				041B06662918D8C800B692DC /* SearchErrorPresenter.swift in Sources */,
 				041B06612918CD8900B692DC /* NutritionGuessParams.swift in Sources */,
 				04C4B858291161A100551892 /* Network.swift in Sources */,

@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(recipeController, animated: true)
     }
 
-    func showNutritionDetails(details: GuessNutritionResult) {
+    func showNutritionDetails(details: GuessNutritionResult, query: String) {
         guard let nutritionController = self.storyboard?.instantiateViewController(withIdentifier: "NutritionViewController") as? NutritionDetailsViewController else { return }
-        nutritionController.viewModel = NutritionDetailsViewModel(nutrition: details)
+        nutritionController.viewModel = NutritionDetailsViewModel(nutrition: details, query: query)
         self.navigationController?.pushViewController(nutritionController, animated: true)
     }
 
