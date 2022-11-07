@@ -13,7 +13,7 @@ protocol HomeScreenDisplayable {
 
     func search(query: String) async
     func details(for recipeId: Int)
-    func guess(query: String)
+    func guess(query: String) async
 }
 
 class HomeScreenViewModel: HomeScreenDisplayable {
@@ -30,11 +30,6 @@ class HomeScreenViewModel: HomeScreenDisplayable {
     let network: Network<RecipesEndpoint> = .init(Constants.host,
                                                   headers: Constants.headers)
 
-    // TODO: complete AlamoNetworking, not working yet
-
-//    let network: AlamoNetworking<RecipesEndpoint> = .init(Constants.host,
-//                                                          headers: Constants.headers)
-
     var recipes: [RecipeModel] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -49,12 +44,14 @@ class HomeScreenViewModel: HomeScreenDisplayable {
                                                  .search,
                                                  RecipeSearchParams(query))
             guard let decoded = try? JSONDecoder().decode(SearchModel.self, from: data) else {
+                await ownedVC?.showErrorAlert()
                 return
             }
             self.recipes = decoded.results
         }
         catch {
             // handle error
+            await ownedVC?.showErrorAlert()
         }
     }
     
@@ -62,9 +59,22 @@ class HomeScreenViewModel: HomeScreenDisplayable {
         ownedVC?.showRecipeDetails(recipeId)
     }
     
-    func guess(query: String) {
+    func guess(query: String) async {
         // fetch
-        // pass some fetched details
-        ownedVC?.showNutritionDetails()
+        do {
+            let data = try await network.perform(.get,
+                                                 .guessNutrition,
+                                                 NutritionGuessParams(query))
+            guard let decoded = try? JSONDecoder().decode(GuessNutritionResult.self, from: data) else {
+                await ownedVC?.showErrorAlert()
+                return
+            }
+            // pass some fetched details
+            await ownedVC?.showNutritionDetails(details: decoded)
+        }
+        catch {
+            // handle error
+            await ownedVC?.showErrorAlert()
+        }
     }
 }

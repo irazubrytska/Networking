@@ -24,7 +24,7 @@ final class Network<T: Endpoint> {
         }
 
         session.dataTask(with: request) { data, _, error in
-            if let error {
+            if let error = error {
                 completion(.error(error))
             } else {
                 completion(.data(data))
@@ -34,7 +34,7 @@ final class Network<T: Endpoint> {
 
     func perform(_ method: Method, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible? = nil) async throws -> Data {
         guard let request = makeRequest(method, endpoint, parameters) else {
-            return Data()
+            throw NetworkError.requestFormingError
         }
         let (data, _) = try await session.data(for: request)
         return data

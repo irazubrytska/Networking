@@ -10,8 +10,14 @@ import UIKit
 
 protocol NutritionDetailsDisplayable {
     var ownedVC: NutritionDetailsViewController? { get set }
+    var nutrition: GuessNutritionResult { get set }
 }
 
 class NutritionDetailsViewModel: NutritionDetailsDisplayable {
     weak var ownedVC: NutritionDetailsViewController?
+    var nutrition: GuessNutritionResult
+    
+    init(nutrition: GuessNutritionResult) {
+        self.nutrition = nutrition
+    }
 }

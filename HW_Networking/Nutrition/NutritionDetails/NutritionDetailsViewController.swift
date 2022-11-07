@@ -8,11 +8,23 @@
 import UIKit
 
 class NutritionDetailsViewController: UIViewController {
+    var viewModel: NutritionDetailsDisplayable?
     
-    var viewModel: NutritionDetailsDisplayable = NutritionDetailsViewModel()
-
+    @IBOutlet weak private var calories: UILabel!
+    @IBOutlet weak private var carbs: UILabel!
+    @IBOutlet weak private var fat: UILabel!
+    @IBOutlet weak private var protein: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel?.ownedVC = self
+        setupUI()
+    }
+    
+    private func setupUI() {
+        self.calories.text = String(viewModel?.nutrition.calories.value ?? 0) + (viewModel?.nutrition.calories.unit ?? "")
+        self.carbs.text = String(viewModel?.nutrition.carbs.value ?? 0) + (viewModel?.nutrition.carbs.unit ?? "")
+        self.fat.text = String(viewModel?.nutrition.fat.value ?? 0) + (viewModel?.nutrition.fat.unit ?? "")
+        self.protein.text = String(viewModel?.nutrition.protein.value ?? 0) + (viewModel?.nutrition.protein.unit ?? "")
     }
 }

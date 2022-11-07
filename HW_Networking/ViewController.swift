@@ -22,18 +22,15 @@ class ViewController: UIViewController {
         tableView.delegate = self
     }
     
-    // pass here some fetched data, add it to view model:
-    // recipeController.viewModel.somedata = passedData
     func showRecipeDetails(_ recipeId: Int) {
         guard let recipeController = self.storyboard?.instantiateViewController(withIdentifier: "RecipeViewController") as? RecipeViewController else { return }
         recipeController.viewModel = RecipeViewModel(recipeId)
         self.navigationController?.pushViewController(recipeController, animated: true)
     }
-    
-    // pass here some fetched data, add it to view model:
-    // recipeController.viewModel.somedata = passedData
-    func showNutritionDetails() {
+
+    func showNutritionDetails(details: GuessNutritionResult) {
         guard let nutritionController = self.storyboard?.instantiateViewController(withIdentifier: "NutritionViewController") as? NutritionDetailsViewController else { return }
+        nutritionController.viewModel = NutritionDetailsViewModel(nutrition: details)
         self.navigationController?.pushViewController(nutritionController, animated: true)
     }
 
@@ -45,8 +42,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func guess(_ sender: Any) {
-        // guard let text = searchBar.text else { return }
-        // viewModel.guess(text)
+        guard let text = searchBar.text else { return }
+       Task {
+           await viewModel.guess(query: text)
+       }
+    }
+    
+    func showErrorAlert() {
+        self.present(SearchErrorPresenter.showSearchError(), animated: true, completion: nil)
     }
 }
 
@@ -58,10 +61,10 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
+        guard let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: RecipeTableViewCell.self),
             for: indexPath
-        ) as! RecipeTableViewCell
+        ) as? RecipeTableViewCell else { return UITableViewCell() }
 
         guard let recipe = viewModel.recipes[safe: indexPath.row] else { return cell }
         cell.model = recipe

@@ -9,4 +9,6 @@ import Foundation
 
 enum NetworkError: Error {
     case badHostString
+    case requestPerformingError
+    case requestFormingError
 }
