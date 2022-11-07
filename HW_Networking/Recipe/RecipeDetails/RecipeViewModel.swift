@@ -31,11 +31,16 @@ class RecipeViewModel: RecipeDisplayable {
 
     var info: InfoModel? {
         didSet {
-            guard let info = info else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.ownedVC?.configure(with: info)
+            Task {
+                guard let info = info else {
+                    await self.ownedVC?.present(SearchErrorPresenter.showSearchError(title: "We're sorry",
+                                                                                     message: "Could not load recipe details"),
+                                                animated: true, completion: nil)
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.ownedVC?.configure(with: info)
+                }
             }
         }
     }

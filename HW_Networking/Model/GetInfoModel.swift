@@ -11,20 +11,21 @@ import Foundation
 struct InfoModel: Codable {
     let vegetarian, vegan, glutenFree, dairyFree: Bool?
     let veryHealthy, cheap, veryPopular, sustainable: Bool?
-    let weightWatcherSmartPoints: Int
-    let gaps: String
+    let weightWatcherSmartPoints: Int?
+    let gaps: String?
     let lowFodmap, ketogenic, whole30: Bool?
     let servings: Int
-    let sourceURL: String
+    let sourceURL: String?
     let spoonacularSourceURL: String?
-    let aggregateLikes: Int
-    let creditsText, sourceName: String
+    let aggregateLikes: Int?
+    let creditsText, sourceName: String?
     let extendedIngredients: [ExtendedIngredient]
     let id: Int
     let title: String
     let readyInMinutes: Int
     let image: String
-    let imageType, instructions: String
+    let imageType: String?
+    let instructions: String
 
     enum CodingKeys: String, CodingKey {
         case vegetarian, vegan, glutenFree, dairyFree, veryHealthy, cheap, veryPopular, sustainable, weightWatcherSmartPoints, gaps, lowFodmap, ketogenic, whole30, servings
