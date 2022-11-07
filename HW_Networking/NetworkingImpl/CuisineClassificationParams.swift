@@ -11,8 +11,9 @@ struct CuisineClassificationParams: NetworkRequestBodyConvertible {
     let ingredientList: [String]
     let title: String
 
-    var data: Data? {
-        "ingredientList=\(ingredientList.joined(separator: "\n"))&title=\(title)".data(using: .utf8)
+    var data: [String: String]? {
+        ["ingredientList": ingredientList.joined(separator: "\n"),
+         "title": title]
     }
 
     var queryItems: [URLQueryItem]?

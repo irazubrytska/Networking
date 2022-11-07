@@ -63,7 +63,7 @@ final class Network<T: Endpoint> {
         request.allHTTPHeaderFields = headers
 
         if method == .post {
-            request.httpBody = parameters?.data
+            request.httpBody = parameters?.data?.description.data(using: .utf8)
         }
 
         return request

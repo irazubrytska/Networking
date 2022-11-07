@@ -13,6 +13,7 @@
 		041B06612918CD8900B692DC /* NutritionGuessParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06602918CD8900B692DC /* NutritionGuessParams.swift */; };
 		041B06632918D84100B692DC /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06622918D84100B692DC /* RecipeTableViewCell.swift */; };
 		041B06662918D8C800B692DC /* SearchErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B06652918D8C800B692DC /* SearchErrorPresenter.swift */; };
+		042E401D29196471003EF365 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042E401C29196470003EF365 /* UIViewControllerExtension.swift */; };
 		04925656291401DD00B8CA59 /* GuessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925655291401DD00B8CA59 /* GuessModel.swift */; };
 		049256582914026D00B8CA59 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049256572914026D00B8CA59 /* SearchModel.swift */; };
 		0492565A291403CE00B8CA59 /* GetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04925659291403CE00B8CA59 /* GetInfoModel.swift */; };
@@ -46,6 +47,7 @@
 		041B06602918CD8900B692DC /* NutritionGuessParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionGuessParams.swift; sourceTree = "<group>"; };
 		041B06622918D84100B692DC /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		041B06652918D8C800B692DC /* SearchErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchErrorPresenter.swift; sourceTree = "<group>"; };
+		042E401C29196470003EF365 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		04925655291401DD00B8CA59 /* GuessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessModel.swift; sourceTree = "<group>"; };
 		049256572914026D00B8CA59 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		04925659291403CE00B8CA59 /* GetInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInfoModel.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				040AE3BD291461B800FE2C7E /* ArrayExtension.swift */,
+				042E401C29196470003EF365 /* UIViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				049256602914068300B8CA59 /* HomeScreenViewModel.swift in Sources */,
 				04C4B85E2911620B00551892 /* RecipesEndpoint.swift in Sources */,
 				04925664291406D400B8CA59 /* RecipeViewController.swift in Sources */,
+				042E401D29196471003EF365 /* UIViewControllerExtension.swift in Sources */,
 				04925656291401DD00B8CA59 /* GuessModel.swift in Sources */,
 				040AE3C329147F3000FE2C7E /* CuisineClassificationParams.swift in Sources */,
 				04C4B8342911587A00551892 /* AppDelegate.swift in Sources */,

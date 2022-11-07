@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkRequestBodyConvertible {
-    var data: Data? { get }
+    var data: [String: String]? { get }
     var queryItems: [URLQueryItem]? { get }
     var httpBody: [String : Any]? { get }
 }

@@ -18,10 +18,14 @@ final class AlamoNetworking<T: Endpoint> {
         self.headers = headers
     }
 
-    func perform(_ method: HTTPMethod, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible, completion: @escaping (Result) -> ()) {
+    func perform(_ method: HTTPMethod, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible, completion: @escaping (Result) -> ()) throws {
+
+        guard let url = URL(string: "https://\(host)\(endpoint.pathComponent)") else {
+            throw NetworkError.requestFormingError
+        }
 
         AF
-            .request(host + "/\(endpoint.pathComponent)", method: method, parameters: parameters.data, headers: HTTPHeaders(headers))
+            .request(url, method: method, parameters: parameters.data, headers: HTTPHeaders(headers))
             .response { response in
                 if let error = response.error {
                     completion(.error(error))
@@ -31,12 +35,12 @@ final class AlamoNetworking<T: Endpoint> {
             }
     }
 
-    func perform(_ method: HTTPMethod, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible) async throws -> Data? {
+    func perform(_ method: HTTPMethod, _ endpoint: T, _ parameters: NetworkRequestBodyConvertible) async throws -> Data {
         return try await withCheckedThrowingContinuation { continuation in
-            perform(method, endpoint, parameters) { result in
+            try? perform(method, endpoint, parameters) { result in
                 switch result {
                 case .data(let data):
-                    continuation.resume(returning: data)
+                    continuation.resume(returning: data ?? Data())
                 case .error(let error):
                     continuation.resume(throwing: error)
                 }

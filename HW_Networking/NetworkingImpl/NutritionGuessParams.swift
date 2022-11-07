@@ -10,7 +10,9 @@ import Foundation
 struct NutritionGuessParams: NetworkRequestBodyConvertible {
     var text: String
 
-    var data: Data?
+    var data: [String: String]? {
+       ["title": text]
+    }
 
     var queryItems: [URLQueryItem]? {
         [URLQueryItem(name: "title", value: text)]

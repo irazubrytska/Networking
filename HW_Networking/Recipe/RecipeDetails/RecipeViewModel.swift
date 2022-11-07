@@ -33,9 +33,7 @@ class RecipeViewModel: RecipeDisplayable {
         didSet {
             Task {
                 guard let info = info else {
-                    await self.ownedVC?.present(SearchErrorPresenter.showSearchError(title: "We're sorry",
-                                                                                     message: "Could not load recipe details"),
-                                                animated: true, completion: nil)
+                    await self.ownedVC?.showErrorAlert(title: "We're sorry", message: "Could not load recipe details")
                     return
                 }
                 DispatchQueue.main.async {
@@ -79,8 +77,6 @@ class RecipeViewModel: RecipeDisplayable {
                                                         CuisineClassificationParams(ingredientList: ingredients, title: title))
             self.cuisine = try? JSONDecoder().decode(CuisineModel.self, from: cuisineData)
         }
-        catch {
-            // handle error
-        }
+        catch { }
     }
 }

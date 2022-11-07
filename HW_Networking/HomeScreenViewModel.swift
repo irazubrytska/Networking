@@ -27,7 +27,7 @@ class HomeScreenViewModel: HomeScreenDisplayable {
 
     weak var ownedVC: ViewController?
 
-    let network: Network<RecipesEndpoint> = .init(Constants.host,
+    let network: AlamoNetworking<RecipesEndpoint> = .init(Constants.host,
                                                   headers: Constants.headers)
 
     var recipes: [RecipeModel] = [] {

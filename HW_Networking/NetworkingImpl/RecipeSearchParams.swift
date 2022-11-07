@@ -10,7 +10,9 @@ import Foundation
 struct RecipeSearchParams: NetworkRequestBodyConvertible {
     var text: String
 
-    var data: Data?
+    var data: [String: String]? {
+        ["query": text]
+    }
 
     var queryItems: [URLQueryItem]? {
         [URLQueryItem(name: "query", value: text)]

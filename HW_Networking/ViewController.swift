@@ -47,10 +47,6 @@ class ViewController: UIViewController {
            await viewModel.guess(query: text)
        }
     }
-    
-    func showErrorAlert() {
-        self.present(SearchErrorPresenter.showSearchError(), animated: true, completion: nil)
-    }
 }
 
 // MARK: UITableViewDataSource
