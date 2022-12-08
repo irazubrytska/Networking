@@ -17,13 +17,6 @@ protocol HomeScreenDisplayable {
 }
 
 class HomeScreenViewModel: HomeScreenDisplayable {
-    private struct Constants {
-        static let host = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        static let headers = [
-            "X-RapidAPI-Key": "ad2a9020damshc02c51879f0b9f2p18769ajsn4c11c5815975",
-            "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
-        ]
-    }
 
     weak var ownedVC: ViewController?
 
@@ -43,10 +36,7 @@ class HomeScreenViewModel: HomeScreenDisplayable {
             let data = try await network.perform(.get,
                                                  .search,
                                                  RecipeSearchParams(query))
-            guard let decoded = try? JSONDecoder().decode(SearchModel.self, from: data) else {
-                await ownedVC?.showErrorAlert()
-                return
-            }
+            let decoded = try JSONDecoder().decode(SearchModel.self, from: data)
             if decoded.results.isEmpty {
                 await ownedVC?.showErrorAlert()
                 return
@@ -69,10 +59,7 @@ class HomeScreenViewModel: HomeScreenDisplayable {
             let data = try await network.perform(.get,
                                                  .guessNutrition,
                                                  NutritionGuessParams(query))
-            guard let decoded = try? JSONDecoder().decode(GuessNutritionResult.self, from: data) else {
-                await ownedVC?.showErrorAlert()
-                return
-            }
+            let decoded = try JSONDecoder().decode(GuessNutritionResult.self, from: data)
             // pass some fetched details
             await ownedVC?.showNutritionDetails(details: decoded, query: query)
         }
