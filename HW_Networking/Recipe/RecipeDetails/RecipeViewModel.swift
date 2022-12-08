@@ -12,7 +12,7 @@ protocol RecipeDisplayable {
     var ownedVC: RecipeViewController? { get set }
     var id: Int { get }
 
-    func fetchInfo() async
+    func fetchInfo()
 }
 
 class RecipeViewModel: RecipeDisplayable {
@@ -21,14 +21,12 @@ class RecipeViewModel: RecipeDisplayable {
 
     var info: InfoModel? {
         didSet {
-            Task {
-                guard let info = info else {
-                    await self.ownedVC?.showErrorAlert(title: "We're sorry", message: "Could not load recipe details")
+            DispatchQueue.main.async {
+                guard let info = self.info else {
+                    self.ownedVC?.showErrorAlert(title: "We're sorry", message: "Could not load recipe details")
                     return
                 }
-                DispatchQueue.main.async {
-                    self.ownedVC?.configure(with: info)
-                }
+                self.ownedVC?.configure(with: info)
             }
         }
     }
@@ -53,20 +51,22 @@ class RecipeViewModel: RecipeDisplayable {
         self.id = id
     }
 
-    func fetchInfo() async {
-        do {
-            let data = try await network.perform(.get, .information(id: id))
-            self.info = try? JSONDecoder().decode(InfoModel.self, from: data)
+    func fetchInfo() {
+        Task {
+            do {
+                let data = try await network.perform(.get, .information(id: id))
+                self.info = try? JSONDecoder().decode(InfoModel.self, from: data)
 
-            guard let ingredients = info?.extendedIngredients.map(\.name),
-                  let title = info?.title else {
-                return
+                guard let ingredients = info?.extendedIngredients.map(\.name),
+                      let title = info?.title else {
+                    return
+                }
+
+                let cuisineData = try await network.perform(.post, .classifyCuisine,
+                                                            CuisineClassificationParams(ingredientList: ingredients, title: title))
+                self.cuisine = try? JSONDecoder().decode(CuisineModel.self, from: cuisineData)
             }
-
-            let cuisineData = try await network.perform(.post, .classifyCuisine,
-                                                        CuisineClassificationParams(ingredientList: ingredients, title: title))
-            self.cuisine = try? JSONDecoder().decode(CuisineModel.self, from: cuisineData)
+            catch { }
         }
-        catch { }
     }
 }

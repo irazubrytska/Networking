@@ -17,9 +17,7 @@ class RecipeViewController: UIViewController {
     
     var viewModel: RecipeDisplayable? {
         didSet {
-            Task {
-                await viewModel?.fetchInfo()
-            }
+            viewModel?.fetchInfo()
         }
     }
 

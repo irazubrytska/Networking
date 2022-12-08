@@ -11,9 +11,9 @@ protocol HomeScreenDisplayable {
     var ownedVC: ViewController? { get set }
     var recipes: [RecipeModel] { get set }
 
-    func search(query: String) async
+    func search(query: String)
     func details(for recipeId: Int)
-    func guess(query: String) async
+    func guess(query: String)
 }
 
 class HomeScreenViewModel: HomeScreenDisplayable {
@@ -31,21 +31,27 @@ class HomeScreenViewModel: HomeScreenDisplayable {
         }
     }
     
-    func search(query: String) async {
-        do {
-            let data = try await network.perform(.get,
-                                                 .search,
-                                                 RecipeSearchParams(query))
-            let decoded = try JSONDecoder().decode(SearchModel.self, from: data)
-            if decoded.results.isEmpty {
-                await ownedVC?.showErrorAlert()
-                return
+    func search(query: String) {
+        Task {
+            do {
+                let data = try await network.perform(.get,
+                                                     .search,
+                                                     RecipeSearchParams(query))
+                let decoded = try JSONDecoder().decode(SearchModel.self, from: data)
+                if decoded.results.isEmpty {
+                    DispatchQueue.main.async {
+                        self.ownedVC?.showErrorAlert()
+                    }
+                    return
+                }
+                self.recipes = decoded.results
             }
-            self.recipes = decoded.results
-        }
-        catch {
-            // handle error
-            await ownedVC?.showErrorAlert()
+            catch {
+                // handle error
+                DispatchQueue.main.async {
+                    self.ownedVC?.showErrorAlert()
+                }
+            }
         }
     }
     
@@ -53,19 +59,25 @@ class HomeScreenViewModel: HomeScreenDisplayable {
         ownedVC?.showRecipeDetails(recipeId)
     }
     
-    func guess(query: String) async {
+    func guess(query: String) {
         // fetch
-        do {
-            let data = try await network.perform(.get,
-                                                 .guessNutrition,
-                                                 NutritionGuessParams(query))
-            let decoded = try JSONDecoder().decode(GuessNutritionResult.self, from: data)
-            // pass some fetched details
-            await ownedVC?.showNutritionDetails(details: decoded, query: query)
-        }
-        catch {
-            // handle error
-            await ownedVC?.showErrorAlert()
+        Task {
+            do {
+                let data = try await network.perform(.get,
+                                                     .guessNutrition,
+                                                     NutritionGuessParams(query))
+                let decoded = try JSONDecoder().decode(GuessNutritionResult.self, from: data)
+                // pass some fetched details
+                DispatchQueue.main.async {
+                    self.ownedVC?.showNutritionDetails(details: decoded, query: query)
+                }
+            }
+            catch {
+                // handle error
+                DispatchQueue.main.async {
+                    self.ownedVC?.showErrorAlert()
+                }
+            }
         }
     }
 }

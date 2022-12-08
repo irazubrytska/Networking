@@ -36,16 +36,12 @@ class ViewController: UIViewController {
 
     @IBAction func search(_ sender: Any) {
          guard let text = searchBar.text else { return }
-        Task {
-            await viewModel.search(query: text)
-        }
+        viewModel.search(query: text)
     }
     
     @IBAction func guess(_ sender: Any) {
         guard let text = searchBar.text else { return }
-       Task {
-           await viewModel.guess(query: text)
-       }
+       viewModel.guess(query: text)
     }
 }
 
